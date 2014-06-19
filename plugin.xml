@@ -53,23 +53,26 @@
 				android:configChanges="keyboardHidden|orientation" />
 			<activity android:name="io.card.payment.DataEntryActivity" />
         </config-file>
-
-
     </platform>
-    <!-- <platform name="ios">
+
+	<platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="PlotCordovaPlugin">
-                <param name="ios-package" value="PlotCordovaPlugin" />
+            <feature name="CardIOPGPlugin">
+                <param name="ios-package" value="CardIOPGPlugin" />
             </feature>
         </config-file>
-        <header-file src="src/ios/PlotCordovaPlugin.h" />
-        <source-file src="src/ios/PlotCordovaPlugin.m" />
+        <header-file src="src/iOS/CardIOPGPlugin.h" />
+        <source-file src="src/iOS/CardIOPGPlugin.m" />
 
-        <header-file src="src/ios/Plot.h" />
-        <source-file src="src/ios/libPlot-v1_5_5.a" framework="true" />
-
-        <framework src="libsqlite3.dylib" />
+        <header-file src="lib/iOS/CardIO.h" />
+		<header-file src="lib/iOS/CardIOCreditCardInfo.h" />
+		<header-file src="lib/iOS/" />
+		<header-file src="lib/iOS/CardIOPaymentViewController.h" />
+		<header-file src="lib/iOS/CardIOPaymentViewControllerDelegate.h" />
+		<header-file src="lib/iOS/CardIOView.h" />
+		<header-file src="lib/iOS/CardIOViewDelegate.h" />
+        <source-file src="lib/iOS/libCardIO.a" framework="true" />
 
     </platform>
-    <info>Please see our plugin documentation for more information: http://www.plotprojects.com/plot-app-library-documentation-latest/</info> -->
+    <info>Write something about plugin here</info> 
 </plugin>
