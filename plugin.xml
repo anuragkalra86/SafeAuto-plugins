@@ -22,9 +22,7 @@
         </config-file>
 
         <source-file src="src/android/PluginActivity.java" target-dir="src/com/sa/plugin/cardio/android" />
-		<!-- 20 june. Trying to remove JAR dependency-->
-		<source-file src="lib/android/card.io/io" target-dir="src" />
-        <!-- <source-file src="lib/android/card.io.jar" target-dir="libs" framework="true" /> -->
+        <source-file src="lib/android/card.io.jar" target-dir="libs" framework="true" />
         <source-file src="lib/android/armeabi-v7a" target-dir="libs" framework="true" />
 		<source-file src="lib/android/mips" target-dir="libs" framework="true" />
 		<source-file src="lib/android/x86" target-dir="libs" framework="true" />
