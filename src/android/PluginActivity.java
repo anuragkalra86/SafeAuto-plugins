@@ -6,8 +6,6 @@ import io.card.payment.CreditCard;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaArgs;
 import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.LOG;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,40 +21,11 @@ public class PluginActivity extends CordovaPlugin {
 	private static final String CAN_SCAN_ACTION = "canScan";
 	private static final String VERSION_ACTION = "version";
 
-
-	/**
-	 * App token received after registring at www.card.io
-	 * Reading from Configuration file
-	 */
-	private static final String MY_CARDIO_APP_TOKEN = "c920b19d46854090af1b1a84e8618022";
 	private int MY_SCAN_REQUEST_CODE = 100; // arbitrary int
 	private Activity myActivity = null;
 	private CallbackContext callbackContextInstance = null;
 
 	private static final String TAG = PluginActivity.class.getName();
-
-/*	@Override
-	public boolean execute(String action, JSONArray args,
-			CallbackContext callbackContext) throws JSONException {
-		Log.d(TAG, "Entering execute method");
-
-		if (MY_ACTION.equals(action)) {
-			LOG.d(TAG, "Correct action was passed");
-			myActivity = cordova.getActivity();
-			// this tells Cordova that this class contains the Callback method which should be called once Activity completes
-			cordova.setActivityResultCallback(this);
-			Log.d(TAG, "Calling onScanPress()");
-			onScanPress(null);
-			Log.d(TAG, "Returned from onScanPress() into execute");
-			callbackContextInstance = callbackContext;
-			return true;
-		}
-		else {
-			LOG.e(TAG, "Unknown action was passed via JavaScript interface");
-			callbackContext.error("Unknown action was passed via JavaScript interface");
-		}
-		return false;
-	}*/
 
 	@Override
 	public boolean execute(String action, CordovaArgs args,
@@ -66,7 +35,7 @@ public class PluginActivity extends CordovaPlugin {
 
 		if (SCAN_ACTION.equalsIgnoreCase(action) ){
 			myActivity = cordova.getActivity();
-			// this tells Cordova that this class contains the Callback method which should be called once Activity completes
+			// this tells Cordova that 'this' class contains the Callback method which should be called once Activity completes
 			cordova.setActivityResultCallback(this);
 			Log.d(TAG, "Calling onScanPress()");
 			onScanPress(args);
@@ -74,9 +43,11 @@ public class PluginActivity extends CordovaPlugin {
 			callbackContextInstance = callbackContext;
 			return true;
 		} else if (CAN_SCAN_ACTION.equalsIgnoreCase(action)) {
-
+			Log.w(TAG, "canScan is not yet implemented");
+			return false;
 		} else if (VERSION_ACTION.equalsIgnoreCase(action)) {
-
+			Log.w(TAG, "version is not yet implemented");
+			return false;
 		} else {
 			Log.e(TAG, "No matching action was sent to Plugin. Exiting by calling CallbackContext.error");
 			callbackContext.error("No matching action was sent to Plugin"); 
@@ -147,6 +118,7 @@ public class PluginActivity extends CordovaPlugin {
 			myActivity.startActivityForResult(scanIntent, MY_SCAN_REQUEST_CODE);
 		} catch (Exception e) {
 			Log.e(TAG, "Some error happened. Calling failure callback method of app", e);
+			callbackContextInstance.error("Some error occurred. Please enter the card number manually");
 		}
 		Log.d(TAG, "Exiting onScanPress method without waiting for onActivityResult to be called");
 	}
@@ -195,9 +167,11 @@ public class PluginActivity extends CordovaPlugin {
 
 			} catch (JSONException e) {
 				Log.e(TAG, "Exception while getting card details..", e);
+				callbackContextInstance.error("Some error occurred. Please enter the card number manually");
+			} catch (NullPointerException ne) {
+				Log.e(TAG, "Exception while getting card details..", ne);
+				callbackContextInstance.error("Some error occurred. Please enter the card number manually");
 			}
-
-
 		}
 		else {
 			resultStr = "Scan was canceled.";

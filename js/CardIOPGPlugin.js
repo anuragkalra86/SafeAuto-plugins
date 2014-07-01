@@ -1,11 +1,4 @@
 /**
- * CardIOPGPlugin.js
- *
- * Copyright 2013 PayPal Inc.
- * MIT licensed
- */
-
-/**
  * This class exposes card.io's card scanning functionality to JavaScript.
  *
  * @constructor
@@ -21,8 +14,6 @@ function CardIO() {
  * @parameter options: an object; may be {}. Sample options object:
  *  {"collect_expiry": true, "collect_cvv": false, "collect_zip": false,
  *   "disable_manual_entry_buttons": false, "languageOrLocale": "en"}
- * Omit any key from options to get the default value. For more detail on
- * each of the options, look at CardIOPaymentViewController.h.
  *
  * @parameter onSuccess: a callback function that accepts a response object; response keys
  * include card_type, redacted_card_number, expiry_month, card_number, expiry_year,
