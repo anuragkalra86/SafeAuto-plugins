@@ -29,7 +29,7 @@ CardIO.prototype.scan = function(appToken, options, onSuccess, onFailure) {
 /**
  * Check whether card scanning is currently available. (May vary by
  * device, OS version, network connectivity, etc.)
- *
+ * IMPORTANT: This method has not been implemented in version 1 of plugin. Don't use
  * @parameter callback: a callback function accepting a boolean.
  */
 CardIO.prototype.canScan = function(callback) {
@@ -44,7 +44,7 @@ CardIO.prototype.canScan = function(callback) {
 
 /**
  * Retrieve the version of the card.io library. Useful when contacting support.
- *
+ * IMPORTANT: This method has not been implemented in version 1 of plugin. Don't use
  * @parameter callback: a callback function accepting a string.
  */
 CardIO.prototype.version = function(callback) {

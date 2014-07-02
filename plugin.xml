@@ -66,7 +66,6 @@
 
         <header-file src="lib/iOS/CardIO.h" />
 		<header-file src="lib/iOS/CardIOCreditCardInfo.h" />
-		<header-file src="lib/iOS/" />
 		<header-file src="lib/iOS/CardIOPaymentViewController.h" />
 		<header-file src="lib/iOS/CardIOPaymentViewControllerDelegate.h" />
 		<header-file src="lib/iOS/CardIOView.h" />
