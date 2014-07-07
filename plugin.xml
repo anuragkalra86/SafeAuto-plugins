@@ -64,6 +64,7 @@
         <header-file src="src/iOS/CardIOPGPlugin.h" />
         <source-file src="src/iOS/CardIOPGPlugin.m" />
 
+		<!-- 7 July 2014. Removing these files temporarily. Currently I have added Card.io files manually into XCode. 
         <header-file src="lib/iOS/CardIO.h" />
 		<header-file src="lib/iOS/CardIOCreditCardInfo.h" />
 		<header-file src="lib/iOS/CardIOPaymentViewController.h" />
@@ -71,7 +72,8 @@
 		<header-file src="lib/iOS/CardIOView.h" />
 		<header-file src="lib/iOS/CardIOViewDelegate.h" />
         <source-file src="lib/iOS/libCardIO.a" framework="true" />
-
+		-->
+		
     </platform>
     <info>Write something about plugin here</info> 
 </plugin>
