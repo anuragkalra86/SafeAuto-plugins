@@ -36,6 +36,9 @@
   if(collectCVV) {
     self.paymentViewController.collectCVV = [collectCVV boolValue];
   }
+  
+  //anurag. Show card.io logo instead of paypal. Hardcoding the configuration variable to true.
+    self.paymentViewController.useCardIOLogo = @YES;
 
   NSNumber *collectZip = [options objectForKey:@"collect_zip"];
   if(collectZip) {
