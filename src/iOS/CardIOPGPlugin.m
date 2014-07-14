@@ -38,7 +38,7 @@
   }
   
   //anurag. Show card.io logo instead of paypal. Hardcoding the configuration variable to true.
-    self.paymentViewController.useCardIOLogo = @YES;
+    self.paymentViewController.useCardIOLogo = YES;
 
   NSNumber *collectZip = [options objectForKey:@"collect_zip"];
   if(collectZip) {

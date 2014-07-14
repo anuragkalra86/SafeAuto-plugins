@@ -17,7 +17,7 @@ function CardIO() {
  *
  * @parameter onSuccess: a callback function that accepts a response object; response keys
  * include card_type, redacted_card_number, expiry_month, card_number, expiry_year,
- * and, if requested, cvv, and zip.
+ * and, if requested, cvv, and zip. IMPORTANT: Currently we are returning ONLY: card_number and zip 
  *
  * @parameter onFailure: a zero argument callback function that will be called if the user
  * cancels card scanning.
